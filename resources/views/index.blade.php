@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>4 Col Portfolio - Start Bootstrap Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{{asset('css/4-col-portfolio.css')}}" rel="stylesheet">
-
-  </head>
-
-  <body>
+@section('title','Search Page')
 
     <!-- Navigation -->
-@include('partials.navigation')
+@section('content')
 
     <!-- Page Content -->
     <div class="container">
@@ -123,19 +105,6 @@
       </div>
       <!-- /.row -->
 
-      <!-- Pagination -->
-@include('partials.pagination')
-
     </div>
     <!-- /.container -->
-
-    <!-- Footer -->
-@include('partials.footer')
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-
-  </body>
-
-</html>
+@endsection
