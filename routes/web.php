@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/search',function(){
     return view('index');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
+
