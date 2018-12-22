@@ -61,6 +61,48 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="cs_name" class="col-md-4 col-form-label text-md-right">{{ __('姓名') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="cs_name" type="text" class="form-control{{ $errors->has('cs_name') ? ' is-invalid' : '' }}" name="cs_name" value="{{ old('cs_name') }}" required autofocus>
+
+                                @if ($errors->has('cs_name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('cs_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cs_telephone" class="col-md-4 col-form-label text-md-right">{{ __('電話') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="cs_telephone" type="text" class="form-control{{ $errors->has('cs_telephone') ? ' is-invalid' : '' }}" name="cs_telephone" value="{{ old('cs_telephone') }}" required autofocus>
+
+                                @if ($errors->has('cs_telephone'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('cs_telephone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cs_address" class="col-md-4 col-form-label text-md-right">{{ __('地址') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="cs_address" type="text" class="form-control{{ $errors->has('cs_address') ? ' is-invalid' : '' }}" name="cs_address" value="{{ old('cs_address') }}" required autofocus>
+
+                                @if ($errors->has('cs_address'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('cs_address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
