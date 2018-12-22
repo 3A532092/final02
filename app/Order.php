@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Customer;
+use App\User;
 
 class Order extends Model
 {
     //
     protected $table = 'orders';
 
-    public function customer(){
-        return $this->belongs(Customer::class);
+    public function User(){
+        return $this->belongs(User::class);
     }
 
     public function orderdetail(){

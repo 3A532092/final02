@@ -29,7 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function customer(){
-        return $this->hasOne(Customer::class);
+    public function order(){
+        return $this->hasMany(Order::class);
     }
 }
