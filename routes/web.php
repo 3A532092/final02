@@ -23,5 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'AdminDashboardController@index']);
+    Route::get('graphic'          , ['as' => 'admin.graphic.index' , 'uses' => 'AdminGraphicController@index']);
+    Route::get('graphic/create'   , ['as' => 'admin.graphic.create', 'uses' => 'AdminGraphicController@create']);
+    Route::get('graphic/{gc_id}/edit', ['as' => 'admin.graphic.edit'  , 'uses' => 'AdminGraphicController@edit']);
+    Route::patch('graphic/{gc_id}',    ['as' => 'admin.graphic.update', 'uses' => 'AdminGraphicController@update']);
+    Route::post('graphic', ['as' => 'admin.graphic.store'  , 'uses' => 'AdminGraphicController@store']);
+    Route::delete('graphic/{gc_id}'  , ['as' => 'admin.graphic.destroy', 'uses' => 'AdminGraphicController@destroy']);
 });
 

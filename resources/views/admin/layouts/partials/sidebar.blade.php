@@ -43,7 +43,9 @@
             <li class="active">
                 <a href="{{ route('admin.dashboard.index') }}"><i class="fa fa-fw fa-dashboard"></i> 主控台</a>
             </li>
-            
+            <li>
+                <a href="{{ route('admin.graphic.index') }}"><i class="fa fa-fw fa-edit"></i> 顯卡管理</a>
+            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->
