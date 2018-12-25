@@ -23,7 +23,7 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">顯卡銷售</a>
+        <a class="navbar-brand" href="{{ url('/') }}">顯卡銷售</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +32,7 @@
           <ul class="navbar-nav ml-auto">
           @auth
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/home') }}">Home</a>
+              <a class="nav-link" href="{{ url('/') }}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('GraphicController@getindex') }}">Search</a>
@@ -48,6 +48,9 @@
               </form>
             </li>
             @else
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/') }}">Home</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ action('GraphicController@getindex') }}">Search</a>
               </li>
