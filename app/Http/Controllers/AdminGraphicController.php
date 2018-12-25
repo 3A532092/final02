@@ -10,7 +10,7 @@ class AdminGraphicController extends Controller
 {
     //
     public function index(){
-        $graphics=Graphiccard::orderBy('gc_id','ASC')->get();
+        $graphics=Graphiccard::orderBy('id','ASC')->get();
         $data=['graphiccard'=>$graphics];
         return view('admin.graphic.index',$data);
     }
@@ -19,8 +19,8 @@ class AdminGraphicController extends Controller
         return view('admin.graphic.create');
     }
 
-    public function edit($gc_id){
-        $graphics=Graphiccard::find($gc_id);
+    public function edit($id){
+        $graphics=Graphiccard::find($id);
         $data = ['graphiccard' => $graphics];
 
         return view('admin.graphic.edit', $data);
@@ -32,14 +32,14 @@ class AdminGraphicController extends Controller
         return redirect()->route('admin.graphic.index');
     }
 
-    public function update(Request $request,$gc_id){
-        $graphics=Graphiccard::find($gc_id);
+    public function update(Request $request,$id){
+        $graphics=Graphiccard::find($id);
         $graphics->update($request->all());
         return redirect()->route('admin.graphic.index');
     }
 
-    public function destroy($gc_id){
-        Graphiccard::destroy($gc_id);
+    public function destroy($id){
+        Graphiccard::destroy($id);
         return redirect()->route('admin.graphic.index');
     }
 }

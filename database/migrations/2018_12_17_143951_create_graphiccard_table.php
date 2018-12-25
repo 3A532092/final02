@@ -14,6 +14,7 @@ class CreateGraphiccardTable extends Migration
     public function up()
     {
         Schema::create('graphiccard', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('gc_id');
             $table->string('gc_name');
             $table->string('constructor');

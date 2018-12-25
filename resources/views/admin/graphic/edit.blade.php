@@ -22,12 +22,12 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <form action="/admin/graphic/{{$graphiccard->gc_id}}" method="POST" role="form">
+        <form action="/admin/graphic/{{$graphiccard->id}}" method="POST" role="form">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
 
             <div class="form-group">
-                <label>顯卡名稱：</label>
+                <label>顯卡編號：</label>
                 <input name="gc_id" class="form-control" readonly="readonly" placeholder="請輸入顯卡編號" value="{{$graphiccard->gc_id}}">
             </div>
 

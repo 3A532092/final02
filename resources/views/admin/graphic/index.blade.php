@@ -31,6 +31,7 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
+                        <th width="30" style="text-align: center">編號</th>
                         <th width="30" style="text-align: center">顯卡編號</th>
                         <th width="70" style="text-align: center">顯卡名稱</th>
                         <th width="30" style="text-align: center">廠商</th>
@@ -47,6 +48,7 @@
                 <tbody>
                 @foreach($graphiccard as $graphic)
                     <tr>
+                        <td>{{$graphic->id}}</td>
                         <td>{{$graphic->gc_id}}</td>
                         <td>{{$graphic->gc_name}}</td>
                         <td>{{$graphic->constructor}}</td>
@@ -59,9 +61,9 @@
                         <td>{{$graphic->dx12t}}</td>
                         <td>
                             <div>
-                                <a href="{{ route('admin.graphic.edit', $graphic->gc_id) }}">編輯</a>
+                                <a href="{{ route('admin.graphic.edit', $graphic->id) }}">編輯</a>
                                 /
-                                <form action="{{ route('admin.graphic.destroy', $graphic->gc_id) }}" method="POST">
+                                <form action="{{ route('admin.graphic.destroy', $graphic->id) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     
