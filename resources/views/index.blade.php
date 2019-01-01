@@ -12,11 +12,24 @@
       <h1 class="my-4">顯卡列表
         <small></small>
       </h1>
-      <div class="form-group row">
-        <label for="email" class="col-md-4 col-form-label text-md-right">{{ ('搜尋') }}</label>
+      <div class="card-body">
+        <form method="POST" action="{{ route('index.show') }}">
+          @csrf
+            
+            <div class="form-group row">
+              <label for="search" class="col-md-4 col-form-label text-md-right">{{('輸入關鍵字')}}</label>
 
-          <div class="col-md-6">
-            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+            <div class="col-md-6">
+              <input id="searchword" type="string" class="form-control" name="searchword" value="" required autofocus>
+            </div>
+
+            <div class="form-group row mb-0">
+              <div class="col-md-8 offset-md-4">
+                <button type="submit" class="btn btn-primary">
+                  {{('搜尋')}}
+                </button>
+              </div>
+            </div>
           </div>
       </div>
 
