@@ -23,8 +23,11 @@ class GraphicController extends Controller
     public function search(Request $request){
         $searchword=$request->input('searchword');
 
-        //echo $searchword;
-        $graphics=Graphiccard::where('price','<=',$searchword)->get();
+        //顯卡搜尋 變數要雙引號包住
+        $graphics=Graphiccard::where('gc_name','like',"%$searchword%")
+        ->orWhere('price','<=',$searchword)
+        ->get();
+        
         
         
         $data=['graphiccard'=>$graphics];
