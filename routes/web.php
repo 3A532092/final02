@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('/index','GraphicController@getindex');
+Route::get('/index',['as'=>'index.show','uses'=>'GraphicController@getindex']);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
