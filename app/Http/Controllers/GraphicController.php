@@ -13,11 +13,6 @@ class GraphicController extends Controller
         $graphics=Graphiccard::get();
         $data=['graphiccard'=>$graphics];
         return view('index',$data);
-
-        if($searchword != null) {
-            $data = $searchword->input('searchword');
-            return view('index',$data);
-        }
     }
 
     public function search(Request $request){
