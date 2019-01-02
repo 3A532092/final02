@@ -20,5 +20,15 @@ class GraphicController extends Controller
         }
     }
 
-     
+    public function search(Request $request){
+        $searchword=$request->input('searchword');
+
+        //echo $searchword;
+        $graphics=Graphiccard::where('price','<=',$searchword)->get();
+        
+        
+        $data=['graphiccard'=>$graphics];
+        return view('index',$data);
+        
+    }
 }

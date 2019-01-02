@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/index',['as'=>'index.show','uses'=>'GraphicController@getindex']);
 
+Route::post('graphic/search','GraphicController@search');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function() {

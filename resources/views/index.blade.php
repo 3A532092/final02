@@ -13,24 +13,19 @@
         <small></small>
       </h1>
       <div class="card-body">
-        <form method="POST" action="{{ route('index.show') }}">
-          @csrf
+        <form method="POST" action='/graphic/search'>
+          {{csrf_field()}}
             
             <div class="form-group row">
-              <label for="search" class="col-md-4 col-form-label text-md-right">{{('輸入關鍵字')}}</label>
+              <label>
+                關鍵字查詢
+                <input name='searchword' type='string'>
+              </label>
+              <br>
+                <input type='submit'>
 
-            <div class="col-md-6">
-              <input id="searchword" type="string" class="form-control" name="searchword" value="" required autofocus>
             </div>
-
-            <div class="form-group row mb-0">
-              <div class="col-md-8 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                  {{('搜尋')}}
-                </button>
-              </div>
-            </div>
-          </div>
+          </form>
       </div>
 
       <div class="row">
