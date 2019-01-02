@@ -23,6 +23,10 @@ Route::post('graphic/search','GraphicController@search');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/order',function(){
+    return view('order');
+});
+
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'AdminDashboardController@index']);
     Route::get('graphic'          , ['as' => 'admin.graphic.index' , 'uses' => 'AdminGraphicController@index']);

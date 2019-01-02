@@ -16,6 +16,6 @@ class OrderDetail extends Model
     }
 
     public function graphiccard(){
-        return $this->hasMany(Graphiccard::class);
+        return $this->hasOne(Graphiccard::class);
     }
 }
