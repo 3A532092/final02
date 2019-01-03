@@ -37,8 +37,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('GraphicController@getindex') }}">Search</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('logout') }}"
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->name }}
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
@@ -46,6 +50,7 @@
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
               </form>
+              </div>
             </li>
             @else
               <li class="nav-item">
