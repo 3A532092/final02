@@ -60,7 +60,7 @@
                 <a class="nav-link" href="{{ action('GraphicController@getindex') }}">Search</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                <a class="nav-link" href="{{ route('login') . '?previous=' . Request::fullUrl()}}">Login</a>
               </li>
               @if (Route::has('register'))
                 <li class="nav-item">
