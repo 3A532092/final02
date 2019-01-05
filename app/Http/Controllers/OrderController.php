@@ -24,7 +24,6 @@ class OrderController extends Controller
         $cs=User::find($user);
         $gc=Graphiccard::find($id);
         $data=['graphiccard'=> $gc];
-        DB::insert('insert into orders (cs_id, total) values (?, ?)', [$user, 0]);
         return view('order.create',['users'=> $cs],$data);
     }
 
@@ -33,9 +32,10 @@ class OrderController extends Controller
         $price=$request->input('price');
         $qy=$request->input('gc_qy');
         $total = ($price * $qy);
-
-        DB::insert('insert into orders (cs_id, total) values (?, ?)', [$request->input('id'), $total]);
-        DB::insert('insert into orderdetails (od_id, gc_id) values (?, ?)', [0, $request->input('gc_id')]);
+        $odid = DB::table('orders')->insertGetId(
+            ['cs_id' => $request->input('id'), 'total' => $total]
+        );
+        DB::insert('insert into orderdetails (od_id, gc_id, de_qy) values (?, ?, ?)', [$odid, $request->input('gc_id'), $request->input('gc_qy')]);
         return view('/order.index');
     }
 }
