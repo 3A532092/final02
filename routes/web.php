@@ -24,8 +24,14 @@ Route::post('graphic/search','GraphicController@search');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/order',function(){
-    return view('order');
+    return view('order.index');
 });
+
+//Route::get('/order/create',['as'=>'order.create','uses'=>'OrderController@create']);
+
+Route::get('/order/{id}/create',['as'=>'order.create','uses'=>'OrderController@create']);
+
+Route::post('/orders',['as'=>'order.store','uses'=>'OrderController@store']);
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'AdminDashboardController@index']);

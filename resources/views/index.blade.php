@@ -32,10 +32,9 @@
       @foreach($graphiccard as $graphic)
         <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">{{$graphic->gc_name}}</a>
+                <a href="{{ route('order.create', $graphic->id) }}">{{$graphic->gc_name}}</a>
               </h4>
               <p class="card-text">價格：{{$graphic->price}}元</p>
               <p class="card-text">{{$graphic->chipset}} 架構</p>
