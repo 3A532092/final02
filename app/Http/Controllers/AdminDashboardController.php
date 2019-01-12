@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
+
 class AdminDashboardController extends Controller
 {
     public function __construct()
@@ -15,6 +17,12 @@ class AdminDashboardController extends Controller
     
     public function index()
     {
-        return view('admin.dashboard.index');
+        $type=Auth::user()->type;
+        if($type == true){        
+            return view('admin.dashboard.index');
+        }
+        else{
+            return redirect('/');
+        }
     }
 }

@@ -36,6 +36,26 @@ class OrderController extends Controller
             ['cs_id' => $request->input('id'), 'total' => $total]
         );
         DB::insert('insert into orderdetails (od_id, gc_id, de_qy) values (?, ?, ?)', [$odid, $request->input('gc_id'), $request->input('gc_qy')]);
-        return view('/order.index');
+        return redirect()->route('order.index');
+    }
+
+    public function index(Request $request){
+        $order = Order::where('cs_id', $request->user()->id)->get();
+        $data=['orders' => $order];
+        return view('order.index', $data);
+    }
+
+    public function getindex($id){
+        $detail=Orderdetail::join('graphiccard','orderdetails.gc_id','=','graphiccard.gc_id')
+            ->where('od_id',$id)
+            ->select('orderdetails.id','orderdetails.de_qy','graphiccard.gc_name','orderdetails.gc_id')
+            ->orderBy('id','ASC')
+            ->get();
+        $data = ['orderdetails' => $detail];
+
+        $total=Order::find($id);
+
+        return view('order.detail.index', $data,['orders'=>$total]);
+
     }
 }

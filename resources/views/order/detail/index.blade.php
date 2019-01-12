@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>訂單檢視</title>
+    <title>訂單明細</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -27,42 +27,42 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">訂單
-        <small></small>
+      <h1 class="my-4">訂單明細
+        <small><a class="btn btn-primary" href="{{ action('OrderController@index') }}">返回訂單列表</a></small>
       </h1>
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th width="10" style="text-align: center">訂單編號</th>
-            <th width="20" style="text-align: center">總金額</th>
-            <th width="20" style="text-align: center">查看明細</th>
+            <th width="10" style="text-align: center">商品</th>
+            <th width="20" style="text-align: center">顯卡名稱</th>
+            <th width="20" style="text-align: center">數量</th>
             <th width="20" style="text-align: center">動作</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($orders as $od)
-          <tr>
-            <td>{{$od -> id}}</td>
-            <td>{{$od -> total}}</td>
-            <td>
-              <div>
-                <a class="btn btn-primary" href="{{ route('detail.index', $od->id) }}">檢視內容</a>
-              </div>
-            </td>
-            <td>
-              <div>
-                <form action="#" method="POST">
-                  {{ csrf_field() }}
-                  {{ method_field('DELETE') }}
-                  <a class="btn btn-primary">刪除訂單</a>
-                </form>
-              </div>
-            </td>
-          </tr>
-          
+      @foreach($orderdetails as $de)
+        <tr>
+          <td>{{$de -> id}}</td>
+          <td>{{$de -> gc_name}}</td>
+          <td>{{$de -> de_qy}}</td>
+          <td>
+            <div>
+              <a class="btn btn-primary" href="#">更新</a>
+              <form action="#" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}                                    
+                <a class="btn btn-primary">刪除</a>
+              </form>
+            </div>
+          </td>
+        </tr>
       <!-- /.row -->
-          @endforeach
-        </tbody>
+      @endforeach
+      <tr>
+        <td>總金額:</td>
+        <td>{{$orders -> total}} 元</td>
+      </tr>
+      </tbody>
     </div>
     <!-- /.container -->
 

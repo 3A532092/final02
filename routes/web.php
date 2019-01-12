@@ -23,13 +23,13 @@ Route::post('graphic/search','GraphicController@search');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/order',function(){
-    return view('order.index');
-});
+Route::get('/order',['as' => 'order.index' , 'uses' => 'OrderController@index']);
 
 //Route::get('/order/create',['as'=>'order.create','uses'=>'OrderController@create']);
 
 Route::get('/order/{id}/create',['as'=>'order.create','uses'=>'OrderController@create']);
+
+Route::get('order/{id}/index', ['as' => 'detail.index'  , 'uses' => 'OrderController@getindex']);
 
 Route::post('/orders',['as'=>'order.store','uses'=>'OrderController@store']);
 

@@ -6,13 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Graphiccard;
 
+use Auth;
+
 class AdminGraphicController extends Controller
 {
     //
     public function index(){
-        $graphics=Graphiccard::orderBy('id','ASC')->get();
-        $data=['graphiccard'=>$graphics];
-        return view('admin.graphic.index',$data);
+        $type=Auth::user()->type;
+        if($type == true){        
+            $graphics=Graphiccard::orderBy('id','ASC')->get();
+            $data=['graphiccard'=>$graphics];
+            return view('admin.graphic.index',$data);
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     public function create(){
