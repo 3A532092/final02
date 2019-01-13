@@ -55,6 +55,6 @@ class LoginController extends Controller
             
         }
 
-        return $this->redirectTo ?? '/home';
+        return $this->redirectTo ?? '/';
     }
 }

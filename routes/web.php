@@ -33,6 +33,10 @@ Route::get('order/{id}/index', ['as' => 'detail.index'  , 'uses' => 'OrderContro
 
 Route::post('/orders',['as'=>'order.store','uses'=>'OrderController@store']);
 
+Route::post('/cart',['as' => 'cart.add' , 'uses' => 'CartController@add']);
+
+Route::get('/cart/index',['as' => 'cart.index' , 'uses' => 'CartController@index']);
+
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'AdminDashboardController@index']);
     Route::get('graphic'          , ['as' => 'admin.graphic.index' , 'uses' => 'AdminGraphicController@index']);

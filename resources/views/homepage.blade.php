@@ -43,6 +43,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="{{ action('OrderController@index') }}">My Order</a>
+                <a class="dropdown-item" href="{{ action('CartController@index') }}">Shopping Cart</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

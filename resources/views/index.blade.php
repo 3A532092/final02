@@ -34,7 +34,8 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">
-                <a href="{{ route('order.create', $graphic->id) }}">{{$graphic->gc_name}}</a>
+                <!--<a href="{{ route('order.create', $graphic->id) }}">{{$graphic->gc_name}}</a>-->
+                {{$graphic->gc_name}}
               </h4>
               <p class="card-text">價格：{{$graphic->price}}元</p>
               <p class="card-text">{{$graphic->chipset}} 架構</p>
@@ -42,6 +43,21 @@
               <p class="card-text">DX11：{{$graphic->dx11f}}分</p>
               <p class="card-text">DX12：{{$graphic->dx12t}}分</p>
               <p class="card-text">尺寸：{{$graphic->size}}</p>
+              <form method="POST" action="/cart">
+                @csrf
+                <div class="form-group row mb-0">
+                  <p class="card-text">數量</p>
+                  <input class="form-control" type="hidden" name="gc_id" value="{{$graphic->id}}">
+                  <select name="quantity" class="form-control">
+                    @foreach(range(1, 10) as $quantity)
+                      <option value={{$quantity}}>{{$quantity}}</option>
+                    @endforeach
+                  </select>
+                  <button type="submit" class="btn btn-primary">
+                    {{ __('加入購物車') }}
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

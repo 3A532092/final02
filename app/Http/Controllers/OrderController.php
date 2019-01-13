@@ -28,7 +28,6 @@ class OrderController extends Controller
     }
 
     public function store(Request $request){
-        //Order::create($request->all());
         $price=$request->input('price');
         $qy=$request->input('gc_qy');
         $total = ($price * $qy);
