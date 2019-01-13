@@ -37,6 +37,12 @@ Route::post('/cart',['as' => 'cart.add' , 'uses' => 'CartController@add']);
 
 Route::get('/cart/index',['as' => 'cart.index' , 'uses' => 'CartController@index']);
 
+Route::get('cart/{id}/{q}',['as' => 'cart.update', 'uses'=>'CartController@update']);
+
+Route::delete('/cart/{id}'  , ['as' => 'cart.destroy', 'uses' => 'CartController@destroy']);
+
+Route::delete('/checkout',['as'=>'shop.checkout','uses'=>'OrderController@checkout']);
+
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'AdminDashboardController@index']);
     Route::get('graphic'          , ['as' => 'admin.graphic.index' , 'uses' => 'AdminGraphicController@index']);

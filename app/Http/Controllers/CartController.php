@@ -38,6 +38,24 @@ class CartController extends Controller
         ->orderBy('id','ASC')
         ->get();
         $data=['carts' => $cart];
-        return view('cart.index', $data);
+        $sum=0;
+        foreach($cart as $tt){
+            $sum=$sum + ($tt->price*$tt->qy);
+        }
+        $data2=['ss'=>$sum];
+        return view('cart.index', $data,$data2);
+    }
+
+    public function destroy($id){
+        Cart::destroy($id);
+        return redirect()->route('cart.index');
+    }
+
+    public function update($id,$quantity)
+    {
+        DB::table('carts')
+            ->where('id', $id)
+            ->update(['qy' => $quantity]);
+        return redirect()->route('cart.index');
     }
 }
