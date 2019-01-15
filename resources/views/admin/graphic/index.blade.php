@@ -56,7 +56,7 @@
                         <td>{{$graphic->chipset}}</td>
                         <td>{{$graphic->size}}</td>
                         <td>{{$graphic->gcp}}</td>
-                        <td>{{($graphic->pin)?'6 pin':'8 pin'}}</td>
+                        <td>{{($graphic->pin)?'8 pin':'6 pin'}}</td>
                         <td>{{$graphic->dx11f}}</td>
                         <td>{{$graphic->dx12t}}</td>
                         <td>

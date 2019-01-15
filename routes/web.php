@@ -50,6 +50,7 @@ Route::get('detail/{id}/{deid}/{q}',['as' => 'detail.update', 'uses'=>'DetailCon
 Route::delete('/detail/{id}/{deid}'  , ['as' => 'detail.destroy', 'uses' => 'DetailController@destroy']);
 
 Route::group(['prefix' => 'admin'], function() {
+    //顯卡
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'AdminDashboardController@index']);
     Route::get('graphic'          , ['as' => 'admin.graphic.index' , 'uses' => 'AdminGraphicController@index']);
     Route::get('graphic/create'   , ['as' => 'admin.graphic.create', 'uses' => 'AdminGraphicController@create']);
@@ -57,5 +58,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::patch('graphic/{id}',    ['as' => 'admin.graphic.update', 'uses' => 'AdminGraphicController@update']);
     Route::post('graphic', ['as' => 'admin.graphic.store'  , 'uses' => 'AdminGraphicController@store']);
     Route::delete('graphic/{id}'  , ['as' => 'admin.graphic.destroy', 'uses' => 'AdminGraphicController@destroy']);
+    //訂單
+    Route::get('order'          , ['as' => 'admin.order.index' , 'uses' => 'AdminOrderController@index']);
+    Route::get('order/{id}/{q}',['as' => 'admin.order.update', 'uses'=>'AdminOrderController@update']);
+    Route::get('order/{id}', ['as' => 'admin.detail.index'  , 'uses' => 'AdminOrderController@getindex']);
 });
 
