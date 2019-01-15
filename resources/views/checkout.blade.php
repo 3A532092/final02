@@ -34,7 +34,7 @@
                     </ul>
                     <div class="text-right">
                         <span class="text-muted">總金額: $ {{ $orders->total }}</span>
-                        <button href="{{ action('OrderController@index') }}" class="btn btn-secondary">查看訂單</button>
+                        <button value="{{ action('OrderController@index') }}" onclick="location.href='{{ action('OrderController@index') }}'" class="btn btn-secondary">查看訂單</button>
                     </div>
             </div>
         </div>

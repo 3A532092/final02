@@ -40,22 +40,11 @@ class OrderController extends Controller
     }
 
     public function index(Request $request){
-        $order = Order::where('cs_id', $request->user()->id)->get();
+        $order = Order::where('cs_id', $request->user()->id)->orderBy('id','DESC')->get();
         $data=['orders' => $order];
         return view('order.index', $data);
     }
 
-    public function getindex($id){
-        $detail=Orderdetail::join('graphiccard','orderdetails.gc_id','=','graphiccard.gc_id')
-            ->where('od_id',$id)
-            ->select('orderdetails.id','orderdetails.de_qy','graphiccard.gc_name','orderdetails.gc_id')
-            ->orderBy('id','ASC')
-            ->get();
-        $data = ['orderdetails' => $detail];
-        $total=Order::find($id);
-        return view('order.detail.index', $data,['orders'=>$total]);
-    }
-    
     public function checkout(Request $request){
         $user=Auth::user()->id;
         $cart = Cart::join('graphiccard','carts.gc_id','=','graphiccard.id')
@@ -85,6 +74,12 @@ class OrderController extends Controller
         $money=Order::find($odid);
         $data3=['orders'=>$money];
         return view('checkout', $data, $data3);
+    }
+
+    public function destroy($id){
+        DB::table('orderdetails')->where('od_id', $id)->delete();
+        Order::destroy($id);
+        return redirect()->route('order.index');
     }
 
 }

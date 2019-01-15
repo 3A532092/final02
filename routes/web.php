@@ -29,9 +29,11 @@ Route::get('/order',['as' => 'order.index' , 'uses' => 'OrderController@index'])
 
 Route::get('/order/{id}/create',['as'=>'order.create','uses'=>'OrderController@create']);
 
-Route::get('order/{id}/index', ['as' => 'detail.index'  , 'uses' => 'OrderController@getindex']);
+Route::get('order/{id}/index', ['as' => 'detail.index'  , 'uses' => 'DetailController@getindex']);
 
 Route::post('/orders',['as'=>'order.store','uses'=>'OrderController@store']);
+
+Route::delete('/order/{id}'  , ['as' => 'order.destroy', 'uses' => 'OrderController@destroy']);
 
 Route::post('/cart',['as' => 'cart.add' , 'uses' => 'CartController@add']);
 
@@ -42,6 +44,10 @@ Route::get('cart/{id}/{q}',['as' => 'cart.update', 'uses'=>'CartController@updat
 Route::delete('/cart/{id}'  , ['as' => 'cart.destroy', 'uses' => 'CartController@destroy']);
 
 Route::delete('/checkout',['as'=>'shop.checkout','uses'=>'OrderController@checkout']);
+
+Route::get('detail/{id}/{deid}/{q}',['as' => 'detail.update', 'uses'=>'DetailController@update']);
+
+Route::delete('/detail/{id}/{deid}'  , ['as' => 'detail.destroy', 'uses' => 'DetailController@destroy']);
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'AdminDashboardController@index']);
