@@ -15,9 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('od_id');
-            $table->string('cs_id');
-            $table->string('de_id');
+            $table->integer('cs_id')->unsigned();
+            $table->foreign('cs_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            $table->string('total');
             $table->boolean('od_st');
             $table->timestamps();
         });

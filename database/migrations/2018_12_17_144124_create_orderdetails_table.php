@@ -15,9 +15,14 @@ class CreateOrderdetailsTable extends Migration
     {
         Schema::create('orderdetails', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('de_id');
+            $table->integer('od_id')->unsigned();
+            $table->foreign('od_id')
+                  ->references('id')->on('orders')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             $table->string('gc_id');
             $table->integer('de_qy');
+            $table->integer('sum');
             $table->timestamps();
         });
     }
