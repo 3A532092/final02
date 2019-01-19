@@ -34,7 +34,6 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">
-                <!--<a href="{{ route('order.create', $graphic->id) }}">{{$graphic->gc_name}}</a>-->
                 {{$graphic->gc_name}}
               </h4>
               <p class="card-text">價格：{{$graphic->price}}元</p>
