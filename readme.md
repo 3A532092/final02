@@ -21,15 +21,15 @@
 4. modify .env (not need to input email field)
 5. php artisan migrate
 6. 將clone之專案資料夾內的final02.sql檔案，匯入進資料庫中
-<p align="center"><img src="https://imgur.com/a/uFChUGc"></p>
+<p align="center"><img src="https://imgur.com/lSYhn3V"></p>
 
 ## 使用者資料
 
 Default user
-ID:963@gmail.com Password:963582
+- ID:963@gmail.com Password:963582
 
 Admin
-ID:123@gmail.com Password:123456
+- ID:123@gmail.com Password:123456
 
 #### Designer
 - [國立勤益科大 資訊管理系三乙 3A532092 高偉瀚](https://github.com/3A532092)
