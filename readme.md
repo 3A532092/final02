@@ -1,6 +1,6 @@
 # 顯示卡比價系統
 
-<p align="center"><img src="https://imgur.com/a/wL846gk"></p>
+<p align="center"><img src="https://i.imgur.com/g99H1le.png"></p>
 
 協助使用者進行顯示卡比較、並提供購買的網站
 
@@ -21,7 +21,7 @@
 4. modify .env (not need to input email field)
 5. php artisan migrate
 6. 將clone之專案資料夾內的final02.sql檔案，匯入進資料庫中
-<p align="center"><img src="https://imgur.com/lSYhn3V"></p>
+<p align="center"><img src="https://i.imgur.com/zSHk9lV.png"></p>
 
 ## 使用者資料
 
